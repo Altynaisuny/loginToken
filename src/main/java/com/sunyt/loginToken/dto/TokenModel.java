@@ -3,11 +3,14 @@ package com.sunyt.loginToken.dto;
 public class TokenModel {
     private String token;
 
-    private Long tokenCreatedDate;
+    private String userId;
 
-    private Long tokenExpiryDate;
+    private boolean isLogin;
 
-    private String isLogin;
+    public TokenModel(String userId, String token) {
+        this.userId = userId;
+        this.token = token;
+    }
 
     public String getToken() {
         return token;
@@ -17,27 +20,19 @@ public class TokenModel {
         this.token = token;
     }
 
-    public Long getTokenCreatedDate() {
-        return tokenCreatedDate;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setTokenCreatedDate(Long tokenCreatedDate) {
-        this.tokenCreatedDate = tokenCreatedDate;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Long getTokenExpiryDate() {
-        return tokenExpiryDate;
-    }
-
-    public void setTokenExpiryDate(Long tokenExpiryDate) {
-        this.tokenExpiryDate = tokenExpiryDate;
-    }
-
-    public String getIsLogin() {
+    public boolean isLogin() {
         return isLogin;
     }
 
-    public void setIsLogin(String isLogin) {
-        this.isLogin = isLogin;
+    public void setLogin(boolean login) {
+        isLogin = login;
     }
 }

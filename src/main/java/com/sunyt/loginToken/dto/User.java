@@ -1,17 +1,23 @@
 package com.sunyt.loginToken.dto;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
+    @Column(name = "username")
     private String username;
-
+    @Column(name = "password")
     private String password;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
