@@ -28,6 +28,10 @@ public class TokenServiceImpl implements TokenService{
         if (model == null){
             return false;
         }
+        //检查redis中是否有key
+        if (!redisUtil.hasKey(model.getUserId())){
+            return false;
+        }
         String token = redisUtil.getStr(model.getUserId());
         //验证token是否相同
         if (token == null || !token.equals(model.getToken())){

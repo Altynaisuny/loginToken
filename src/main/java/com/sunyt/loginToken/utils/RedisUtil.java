@@ -4,6 +4,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -45,6 +46,15 @@ public class RedisUtil {
             }else{
                 redisTemplate.delete(CollectionUtils.arrayToList(key));
             }
+        }
+    }
+
+    public boolean hasKey(String key){
+        try {
+            return redisTemplate.hasKey(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
